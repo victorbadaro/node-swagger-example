@@ -1,0 +1,16 @@
+### Variables
+@hostname = http://localhost
+@port = 3333
+@baseUrl = {{hostname}}:{{port}}
+
+### GET users
+GET {{baseUrl}}/users
+
+### POST users
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+	"name": "Victor Badaró",
+	"email": "victor.badaro@fatec.sp.gov.br"
+}
