@@ -11,6 +11,6 @@ POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
-	"name": "Victor Badaró",
-	"email": "victor.badaro@fatec.sp.gov.br"
+	"name": "Shauna Farrell",
+	"email": "shauna.farrell@email.com"
 }
