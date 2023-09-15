@@ -1,0 +1,144 @@
+{
+	"openapi": "3.0.2",
+	"info": {
+		"title": "Node Swagger Example",
+		"description": "This is just an example of how to use swagger in a node/express application",
+		"version": "1.0.0",
+		"contact": {
+			"name": "Victor Badaró",
+			"email": "victor.badaro@fatec.sp.gov.br",
+			"url": "https://github.com/victorbadaro"
+		}
+	},
+	"paths": {
+		"/users": {
+			"post": {
+				"tags": [
+					"User"
+				],
+				"summary": "Create a user",
+				"description": "Create a new user",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string"
+									}
+								},
+								"example": {
+									"name": "Shauna Farrell",
+									"email": "shauna.farrell@email.com"
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "number"
+										},
+										"name": {
+											"type": "string"
+										},
+										"email": {
+											"type": "string"
+										}
+									},
+									"example": {
+										"id": 5,
+										"name": "Shauna Farrell",
+										"email": "shauna.farrell@email.com"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Email is already in use",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"error": {
+											"type": "string",
+											"example": "Email is already in use"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": [
+					"User"
+				],
+				"summary": "List users",
+				"description": "List created users",
+				"responses": {
+					"200": {
+						"description": "A json array of users",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "number"
+											},
+											"name": {
+												"type": "string"
+											},
+											"email": {
+												"type": "string"
+											}
+										}
+									},
+									"example": [
+										{
+											"id": 1,
+											"name": "Keira Holman",
+											"email": "keira.holman@email.com"
+										},
+										{
+											"id": 2,
+											"name": "Tiffany Harding",
+											"email": "tiffany.harding@email.com"
+										},
+										{
+											"id": 3,
+											"name": "Riya Pittman",
+											"email": "riya.pittman@email.com"
+										},
+										{
+											"id": 4,
+											"name": "Liberty Kent",
+											"email": "liberty.kent@email.com"
+										}
+									]
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

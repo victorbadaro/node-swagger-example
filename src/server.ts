@@ -1,5 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
+import { serve, setup } from 'swagger-ui-express';
+import swaggerDocument from './swagger.json';
 
 const app = express();
 const SERVER_PORT = process.env.SERVER_PORT;
@@ -12,6 +14,7 @@ const users = [
 ];
 
 app.use(express.json());
+app.use('/api-docs', serve, setup(swaggerDocument));
 
 app.get('/users', (request, response) => {
 	return response.json(users);
